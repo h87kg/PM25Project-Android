@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import me.dt2dev.pm25.PM25Application;
+import me.dt2dev.pm25.R;
 import me.dt2dev.pm25.data.PM25Service;
 import me.dt2dev.pm25.data.pojo.AQI;
 import me.dt2dev.pm25.data.pojo.CityList;
@@ -62,6 +64,7 @@ public class MainActivity extends ListActivity implements AdapterView.OnItemClic
                         new Action1<Throwable>() {
                             @Override public void call(Throwable throwable) {
                                 System.out.println(throwable);
+                                toast();
                             }
                         }
                 );
@@ -90,6 +93,7 @@ public class MainActivity extends ListActivity implements AdapterView.OnItemClic
                         new Action1<Throwable>() {
                             @Override public void call(Throwable throwable) {
                                 System.out.println(throwable);
+                                toast();
                             }
                         }
                 );
@@ -119,6 +123,7 @@ public class MainActivity extends ListActivity implements AdapterView.OnItemClic
                         new Action1<Throwable>() {
                             @Override public void call(Throwable throwable) {
                                 System.out.println(throwable);
+                                toast();
                             }
                         }
                 );
@@ -126,5 +131,9 @@ public class MainActivity extends ListActivity implements AdapterView.OnItemClic
 
     private void initDialog(final AQI aqi) {
         new AlertDialog.Builder(this).setMessage(aqi.toString()).create().show();
+    }
+
+    private void toast() {
+        Toast.makeText(MainActivity.this, R.string.toast_error, Toast.LENGTH_SHORT).show();
     }
 }

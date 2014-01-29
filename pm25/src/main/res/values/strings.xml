@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">PM25Project</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="toast_error">API调用可能达到上限</string>
 
 </resources>
