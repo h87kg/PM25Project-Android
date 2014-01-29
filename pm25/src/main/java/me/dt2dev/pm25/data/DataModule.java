@@ -1,5 +1,7 @@
 package me.dt2dev.pm25.data;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 import me.dt2dev.pm25.ui.MainActivity;
@@ -13,11 +15,11 @@ import retrofit.RestAdapter;
 )
 public class DataModule {
 
-    @Provides public PM25Service getPM25Service(RestAdapter restAdapter) {
+    @Provides @Singleton public PM25Service getPM25Service(RestAdapter restAdapter) {
         return restAdapter.create(PM25Service.class);
     }
 
-    @Provides public RestAdapter provideRestAdapter() {
+    @Provides @Singleton public RestAdapter provideRestAdapter() {
         return new RestAdapter.Builder().setServer(PM25Contact.BASE_URL).build();
     }
 }
